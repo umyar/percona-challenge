@@ -2,7 +2,7 @@
 Plugin based on [grafana-panel-react-ts-webpack-template](https://github.com/CorpGlory/grafana-panel-react-ts-webpack-template)
 
 # How to test plugin
-Plugin is already builded, just follow steps:
+Plugin is already built, just follow steps:
 
 1) Run the following command in **this repo dir**:
 ```sh

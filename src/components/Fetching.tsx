@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Fetching = () => {
-  return <div>Fetching gifs...</div>;
+  return <div className="fetching">Fetching gifs...</div>;
 };

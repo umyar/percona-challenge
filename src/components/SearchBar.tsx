@@ -12,7 +12,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, disabled }) => {
     setInputValue(e.target.value);
   };
 
-  const fetchGifs = () => {
+  const fetchGifs = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     if (inputValue.trim().length === 0) {
       alert("Please type something meaningful for fetching gifs!");
       return;
@@ -22,7 +24,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, disabled }) => {
   };
 
   return (
-    <div className="search-bar">
+    <form onSubmit={fetchGifs} className="search-bar">
       <input
         onChange={onInputChange}
         value={inputValue}
@@ -30,9 +32,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, disabled }) => {
         type="text"
         placeholder="Type some gif name"
       />
-      <button onClick={fetchGifs} disabled={disabled}>
-        Fetch Gifs
-      </button>
-    </div>
+      <input type="submit" disabled={disabled} value="Fetch Gifs" />
+    </form>
   );
 };

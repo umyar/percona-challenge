@@ -16,6 +16,8 @@ loadPluginCss({
   light: "plugins/grafana-panel-template-react-ts-webpack/css/panel.light.css"
 });
 
+const GIPHY_API_KEY = 'O3ACEGRj8Sla9rswZ6t14DTJxefvfO4R';
+
 type PanelState = {
   error: string;
   gifs: any[];
@@ -37,7 +39,7 @@ export class GifPanel extends PureComponent<PanelProps, PanelState> {
     const searchStringForUrl = searchString.trim().replace(/\s/g, "+");
 
     fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=O3ACEGRj8Sla9rswZ6t14DTJxefvfO4R&q=${searchStringForUrl}&limit=5&offset=0&rating=G&lang=en`
+      `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${searchStringForUrl}&limit=5&offset=0&rating=G&lang=en`
     )
       .then(response => {
         if (!response.ok) {

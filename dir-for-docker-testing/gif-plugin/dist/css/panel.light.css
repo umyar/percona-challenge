@@ -1,9 +1,30 @@
-button {
-  color: black;
-  margin: 0 5px; }
+.panel {
+  margin: 0 0.5rem; }
 
-button:disabled {
-  color: lightgray; }
+input[type="text"] {
+  height: 2rem;
+  margin-right: 0.5rem;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  background: #d8d9da;
+  color: black; }
+
+input[type="submit"] {
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 5px;
+  color: black;
+  background: #f26c26;
+  transition: hover 0.2s ease-in; }
+
+input[type="submit"]:hover {
+  background: #f28226; }
+
+input[type="submit"]:disabled:hover {
+  background: #5d5d5d; }
+
+input:disabled {
+  background: #5d5d5d; }
 
 .search-bar {
   margin-bottom: 10px; }
@@ -13,10 +34,26 @@ button:disabled {
   overflow: scroll;
   list-style-type: none; }
 
+.gifs-list img {
+  border-radius: 5px; }
+
+.fetching {
+  font-size: 1.4rem;
+  animation: fetch 1s ease-in-out infinite; }
+
+@keyframes fetch {
+  from {
+    color: #d8d9da; }
+  50% {
+    color: #f26c26; }
+  to {
+    color: #d8d9da; } }
+
 .error {
-  display: inline;
-  padding: 5px;
-  border: red 1px solid;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: red 2px solid;
+  border-radius: 5px;
   color: red; }
 
 .hello b {

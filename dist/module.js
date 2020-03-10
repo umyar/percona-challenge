@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 var Fetching = function () {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Fetching gifs...");
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "fetching" }, "Fetching gifs...");
 };
 
 
@@ -193,16 +193,17 @@ var SearchBar = function (_a) {
     var onInputChange = function (e) {
         setInputValue(e.target.value);
     };
-    var fetchGifs = function () {
+    var fetchGifs = function (e) {
+        e.preventDefault();
         if (inputValue.trim().length === 0) {
             alert("Please type something meaningful for fetching gifs!");
             return;
         }
         onSearch(inputValue);
     };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "search-bar" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", { onSubmit: fetchGifs, className: "search-bar" },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { onChange: onInputChange, value: inputValue, disabled: disabled, type: "text", placeholder: "Type some gif name" }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: fetchGifs, disabled: disabled }, "Fetch Gifs")));
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "submit", disabled: disabled, value: "Fetch Gifs" })));
 };
 
 
@@ -278,6 +279,7 @@ Object(grafana_app_plugins_sdk__WEBPACK_IMPORTED_MODULE_3__["loadPluginCss"])({
     dark: "plugins/grafana-panel-template-react-ts-webpack/css/panel.dark.css",
     light: "plugins/grafana-panel-template-react-ts-webpack/css/panel.light.css"
 });
+var GIPHY_API_KEY = 'O3ACEGRj8Sla9rswZ6t14DTJxefvfO4R';
 var GifPanel = /** @class */ (function (_super) {
     __extends(GifPanel, _super);
     function GifPanel() {
@@ -290,7 +292,7 @@ var GifPanel = /** @class */ (function (_super) {
         _this.onSearch = function (searchString) {
             _this.setState({ isFetching: true, gifs: [], error: "" });
             var searchStringForUrl = searchString.trim().replace(/\s/g, "+");
-            fetch("https://api.giphy.com/v1/gifs/search?api_key=O3ACEGRj8Sla9rswZ6t14DTJxefvfO4R&q=" + searchStringForUrl + "&limit=5&offset=0&rating=G&lang=en")
+            fetch("https://api.giphy.com/v1/gifs/search?api_key=" + GIPHY_API_KEY + "&q=" + searchStringForUrl + "&limit=5&offset=0&rating=G&lang=en")
                 .then(function (response) {
                 if (!response.ok) {
                     throw response;
