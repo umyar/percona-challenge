@@ -1,0 +1,25 @@
+button {
+  color: black;
+  margin: 0 5px;
+}
+
+button:disabled {
+  color: lightgray;
+}
+
+.search-bar {
+  margin-bottom: 10px;
+}
+
+.gifs-list {
+  display: flex;
+  overflow: scroll;
+  list-style-type: none;
+}
+
+.error {
+  display: inline;
+  padding: 5px;
+  border: red 1px solid;
+  color: red;
+}

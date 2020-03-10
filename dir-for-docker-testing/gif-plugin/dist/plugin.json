@@ -1,0 +1,22 @@
+{
+  "type": "panel",
+  "name": "Gif Plugin React",
+  "id": "grafana-panel-template-react-ts-webpack",
+  "info": {
+    "description": "Gif React Plugin",
+    "author": {
+      "name": "Umyar",
+      "url": ""
+    },
+    "keywords": [ ],
+    "logos": { },
+    "links": [ ],
+    "screenshots": [ ],
+    "version": "1.0.0",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaVersion": "6.x",
+    "plugins": [ ]
+  }
+}
